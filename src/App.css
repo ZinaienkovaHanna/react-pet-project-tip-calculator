@@ -9,22 +9,8 @@ body {
   font-weight: var(--fw-bold);
 }
 
-/* h2 {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-  color: var(--text-question-active);
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-
-p {
-  line-height: 18px;
-  color: var(--text-response);
-}
-
-button {
-  font-family: var(--ff);
-  color: var(--text-question);
-  background-color: var(--bg-faq);
-  font-size: 14px;
-  line-height: 17px;
-} */

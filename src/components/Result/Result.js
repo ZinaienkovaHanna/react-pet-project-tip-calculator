@@ -2,23 +2,7 @@ import React from 'react';
 
 import styles from './Result.module.css';
 
-const Result = ({
-  setBill,
-  setNumberOfPeople,
-  setTipPercent,
-  total,
-  setTotal,
-  tipAmount,
-  setTipAmount,
-}) => {
-  const handleReset = () => {
-    setBill('');
-    setNumberOfPeople('');
-    setTipPercent('');
-    setTotal(0.0);
-    setTipAmount(0.0);
-  };
-
+const Result = ({ total, tipAmount, handleReset }) => {
   return (
     <div className={styles.resultContainer}>
       <div className={styles.tipAmount}>

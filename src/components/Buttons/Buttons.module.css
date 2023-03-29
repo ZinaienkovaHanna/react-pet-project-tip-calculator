@@ -27,6 +27,7 @@
   background-color: var(--very-light-grayish-cyan);
   font-family: var(--ff);
   color: var(--very-dark-cyan);
+  text-align: right;
 }
 
 .buttons input:focus {

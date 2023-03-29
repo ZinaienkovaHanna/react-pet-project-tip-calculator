@@ -9,13 +9,28 @@ const Form = ({
   setNumberOfPeople,
   tipPercent,
   setTipPercent,
+  showErrorMessage,
+  setShowErrorMessage,
+  activeButton,
+  setActiveButton,
 }) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
     if (name === 'bill') {
       setBill(value);
-    } else if (name === 'numberOfPeople') {
+    }
+
+    if (name === 'numberOfPeople') {
       setNumberOfPeople(value);
+      if (value === '0') {
+        setShowErrorMessage(true);
+        event.target.focus();
+        event.target.style.borderColor = 'red';
+      } else {
+        setShowErrorMessage(false);
+        event.target.style.borderColor = '';
+      }
     }
   };
 
@@ -33,20 +48,28 @@ const Form = ({
           name="bill"
           id="bill"
           placeholder="0"
+          step="0.01"
           value={bill}
           onChange={handleInputChange}
+          onKeyDown={(e) => e.key === '-' && e.preventDefault()}
         />
       </div>
 
       <div className={styles.buttonsContainer}>
-        {/* <h2>Select Tip %</h2> */}
-        <h2>{tipPercent}</h2>
-
-        <Buttons tipPercent={tipPercent} setTipPercent={setTipPercent} />
+        <h2>Select Tip %</h2>
+        <Buttons
+          tipPercent={tipPercent}
+          setTipPercent={setTipPercent}
+          activeButton={activeButton}
+          setActiveButton={setActiveButton}
+        />
       </div>
 
       <div className={styles.numberOfPeople}>
-        <label htmlFor="numberOfPeople">Number of People</label>
+        <div>
+          <label htmlFor="numberOfPeople">Number of People</label>
+          {showErrorMessage && <p>Can’t be zero</p>}
+        </div>
         <img
           src="/images/icon-person.svg"
           alt="logo"
@@ -57,8 +80,13 @@ const Form = ({
           name="numberOfPeople"
           id="numberOfPeople"
           placeholder="0"
+          step="1"
           value={numberOfPeople}
           onChange={handleInputChange}
+          onKeyDown={(e) =>
+            (e.key === '.' || e.key === '-' || e.key === ',') &&
+            e.preventDefault()
+          }
         />
       </div>
     </form>

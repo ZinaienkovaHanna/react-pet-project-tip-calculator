@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Form from '../Form/Form';
 import Result from '../Result/Result';
 
@@ -7,8 +7,29 @@ const TipCalculator = () => {
   const [bill, setBill] = useState('');
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [tipPercent, setTipPercent] = useState('');
-  const [tipAmount, setTipAmount] = useState(0.0);
-  const [total, setTotal] = useState(0.0);
+  const [tipAmount, setTipAmount] = useState('0.00');
+  const [total, setTotal] = useState('0.00');
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [activeButton, setActiveButton] = useState(null);
+
+  useEffect(() => {
+    if (bill > 0 && numberOfPeople > 0 && tipPercent >= 0) {
+      const tipAmountCalculate = (Number(bill) * tipPercent) / 100;
+      const totalCalculate = tipAmountCalculate + Number(bill);
+      setTipAmount((tipAmountCalculate / numberOfPeople).toFixed(2));
+      setTotal((totalCalculate / numberOfPeople).toFixed(2));
+    }
+  }, [bill, numberOfPeople, tipPercent]);
+
+  const handleReset = () => {
+    setBill('');
+    setNumberOfPeople('');
+    setTipPercent('');
+    setTotal('0.00');
+    setTipAmount('0.00');
+    setShowErrorMessage(false);
+    setActiveButton(null);
+  };
 
   return (
     <section className={styles.bgContainer}>
@@ -21,15 +42,12 @@ const TipCalculator = () => {
           setBill={setBill}
           numberOfPeople={numberOfPeople}
           setNumberOfPeople={setNumberOfPeople}
+          showErrorMessage={showErrorMessage}
+          setShowErrorMessage={setShowErrorMessage}
+          activeButton={activeButton}
+          setActiveButton={setActiveButton}
         />
-        <Result
-          tipAmount={tipAmount}
-          setTipAmount={setTipAmount}
-          total={total}
-          setTotal={setTotal}
-          setBill={setBill}
-          setNumberOfPeople={setNumberOfPeople}
-        />
+        <Result tipAmount={tipAmount} total={total} handleReset={handleReset} />
       </div>
     </section>
   );

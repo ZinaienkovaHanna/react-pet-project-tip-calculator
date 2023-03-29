@@ -60,6 +60,16 @@
   margin: 32px 0 16px 0;
 }
 
+.numberOfPeople div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.numberOfPeople p {
+  color: red;
+  margin-top: 32px;
+}
+
 @media (min-width: 1200px) {
   .bill input,
   .numberOfPeople input {
@@ -70,6 +80,9 @@
   }
   .numberOfPeople label {
     margin: 40px 0 6px 0;
+  }
+  .numberOfPeople p {
+    margin-top: 40px;
   }
   .buttonsContainer h2 {
     margin: 40px 0 22px 0;

@@ -32,5 +32,6 @@
     flex-direction: row;
     justify-content: space-around;
     border-radius: 25px;
+    margin-bottom: 100px;
   }
 }

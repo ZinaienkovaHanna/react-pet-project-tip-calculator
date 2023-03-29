@@ -2,23 +2,36 @@ import dataButtons from '../../data/dataButtons';
 
 import styles from './Buttons.module.css';
 
-const Buttons = ({ tipPercent, setTipPercent }) => {
-  const handleTipButtonClick = (percent) => {
+const Buttons = ({
+  tipPercent,
+  setTipPercent,
+  activeButton,
+  setActiveButton,
+}) => {
+  const handleTipButtonClick = (percent, id) => {
     setTipPercent(percent);
+    setActiveButton(id);
   };
 
   const handleCustomTipChange = (event) => {
     setTipPercent(event.target.value);
+    setActiveButton(null);
   };
 
-  console.log(tipPercent);
+  const getButtonStyle = (id) => {
+    if (id === activeButton) {
+      return { backgroundColor: 'var(--strong-cyan)' };
+    }
+  };
 
   return (
     <div className={styles.buttons}>
       {dataButtons.map((button) => (
         <button
+          type="button"
           key={button.id}
-          onClick={() => handleTipButtonClick(button.percent)}
+          style={getButtonStyle(button.id)}
+          onClick={() => handleTipButtonClick(button.percent, button.id)}
         >
           {button.percent}%
         </button>
@@ -29,6 +42,7 @@ const Buttons = ({ tipPercent, setTipPercent }) => {
         placeholder="Custom"
         value={tipPercent}
         onChange={handleCustomTipChange}
+        onKeyDown={(e) => e.key === '-' && e.preventDefault()}
       />
     </div>
   );
