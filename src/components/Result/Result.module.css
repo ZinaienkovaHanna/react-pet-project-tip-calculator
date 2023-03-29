@@ -27,6 +27,10 @@
   font-size: 16px;
 }
 
+.total h3 {
+  width: 64px;
+}
+
 .tipAmount h3 span,
 .total h3 span {
   color: var(--middle-grayish-cyan);
@@ -46,4 +50,7 @@
   background-color: var(--strong-cyan);
   border: none;
   margin-left: 23px;
+  font-size: 20px;
+  color: var(--very-dark-cyan);
+  font-weight: var(--fw-bold);
 }

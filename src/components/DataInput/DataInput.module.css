@@ -1,4 +1,4 @@
-.dataInputContainer {
+/* .dataInputContainer {
   margin: 0 auto;
   width: 375px;
   height: 789px;
@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .bill label,
 .people label {
@@ -38,23 +38,24 @@
 
 .people .leftPlaceholder {
   left: 48px;
-  top: 432px;
+  top: 434px;
 }
 
 .bill input,
 .people input {
-  text-align: right;
   width: 311px;
   height: 48px;
   background-color: var(--very-light-grayish-cyan);
   border-radius: 5px;
   border: none;
+  font-size: 24px;
+  text-align: right;
 }
 
 .bill input::placeholder,
 .people input::placeholder {
-  font-size: 16px;
   color: var(--grayish-cyan);
+  font-family: var(--ff);
 }
 
 .buttonsContainer h2 {

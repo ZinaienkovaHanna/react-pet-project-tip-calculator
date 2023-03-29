@@ -9,13 +9,13 @@ const Result = () => {
         <h3>
           Tip Amount <span>/ person</span>
         </h3>
-        <p>$4.27</p>
+        <p>$0.00</p>
       </div>
       <div className={styles.total}>
         <h3>
           Total <span>/ person</span>
         </h3>
-        <p>$32.79</p>
+        <p>$0.00</p>
       </div>
       <button>RESET</button>
     </div>
