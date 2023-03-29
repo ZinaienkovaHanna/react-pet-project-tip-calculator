@@ -5,16 +5,20 @@ import styles from './Buttons.module.css';
 const Buttons = ({
   tipPercent,
   setTipPercent,
+  tipPercentCustom,
+  setTipPercentCustom,
   activeButton,
   setActiveButton,
 }) => {
   const handleTipButtonClick = (percent, id) => {
+    setTipPercentCustom('');
     setTipPercent(percent);
     setActiveButton(id);
   };
 
   const handleCustomTipChange = (event) => {
-    setTipPercent(event.target.value);
+    setTipPercent(0);
+    setTipPercentCustom(event.target.value);
     setActiveButton(null);
   };
 
@@ -23,6 +27,9 @@ const Buttons = ({
       return { backgroundColor: 'var(--strong-cyan)' };
     }
   };
+
+  console.log(tipPercentCustom);
+  console.log(tipPercent);
 
   return (
     <div className={styles.buttons}>
@@ -40,7 +47,7 @@ const Buttons = ({
         type="number"
         id="customTip"
         placeholder="Custom"
-        value={tipPercent}
+        value={tipPercentCustom}
         onChange={handleCustomTipChange}
         onKeyDown={(e) => e.key === '-' && e.preventDefault()}
       />

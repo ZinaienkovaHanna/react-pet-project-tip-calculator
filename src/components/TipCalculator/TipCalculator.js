@@ -6,25 +6,38 @@ import styles from './TipCalculator.module.css';
 const TipCalculator = () => {
   const [bill, setBill] = useState('');
   const [numberOfPeople, setNumberOfPeople] = useState('');
-  const [tipPercent, setTipPercent] = useState('');
+  const [tipPercent, setTipPercent] = useState(0);
+  const [tipPercentCustom, setTipPercentCustom] = useState('');
   const [tipAmount, setTipAmount] = useState('0.00');
   const [total, setTotal] = useState('0.00');
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
 
+  //   if (tipPercent > 0) {
+  //     let percent = tipPercent;
+  //   } else if (tipPercentCustom >= 0) {
+  //     percent = tipPercentCustom;
+  //   }
+
   useEffect(() => {
-    if (bill > 0 && numberOfPeople > 0 && tipPercent >= 0) {
-      const tipAmountCalculate = (Number(bill) * tipPercent) / 100;
+    if (
+      bill > 0 &&
+      numberOfPeople > 0 &&
+      (tipPercent > 0 || tipPercentCustom >= 0)
+    ) {
+      const tipAmountCalculate =
+        (Number(bill) * (tipPercent || tipPercentCustom)) / 100;
       const totalCalculate = tipAmountCalculate + Number(bill);
       setTipAmount((tipAmountCalculate / numberOfPeople).toFixed(2));
       setTotal((totalCalculate / numberOfPeople).toFixed(2));
     }
-  }, [bill, numberOfPeople, tipPercent]);
+  }, [bill, numberOfPeople, tipPercent, tipPercentCustom]);
 
   const handleReset = () => {
     setBill('');
     setNumberOfPeople('');
-    setTipPercent('');
+    setTipPercent(0);
+    setTipPercentCustom('');
     setTotal('0.00');
     setTipAmount('0.00');
     setShowErrorMessage(false);
@@ -38,6 +51,8 @@ const TipCalculator = () => {
         <Form
           tipPercent={tipPercent}
           setTipPercent={setTipPercent}
+          tipPercentCustom={tipPercentCustom}
+          setTipPercentCustom={setTipPercentCustom}
           bill={bill}
           setBill={setBill}
           numberOfPeople={numberOfPeople}

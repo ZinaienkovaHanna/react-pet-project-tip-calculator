@@ -9,6 +9,8 @@ const Form = ({
   setNumberOfPeople,
   tipPercent,
   setTipPercent,
+  tipPercentCustom,
+  setTipPercentCustom,
   showErrorMessage,
   setShowErrorMessage,
   activeButton,
@@ -60,6 +62,8 @@ const Form = ({
         <Buttons
           tipPercent={tipPercent}
           setTipPercent={setTipPercent}
+          tipPercentCustom={tipPercentCustom}
+          setTipPercentCustom={setTipPercentCustom}
           activeButton={activeButton}
           setActiveButton={setActiveButton}
         />
