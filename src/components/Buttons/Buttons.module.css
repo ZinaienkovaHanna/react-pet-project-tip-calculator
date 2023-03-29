@@ -1,0 +1,26 @@
+.buttons {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.buttons button,
+.buttons input {
+  width: 146px;
+  height: 48px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--very-dark-cyan);
+  font-size: 24px;
+  color: var(--white);
+}
+
+.buttons input {
+  background-color: var(--very-light-grayish-cyan);
+}
+
+.buttons input::placeholder {
+  color: var(--very-dark-grayish-cyan);
+  text-align: center;
+}

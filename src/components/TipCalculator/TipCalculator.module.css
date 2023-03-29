@@ -1,0 +1,13 @@
+.bgContainer {
+  height: 100%;
+  background-color: var(--light-grayish-cyan);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.logo {
+  margin: 50px auto 40px auto;
+  width: 86.66px;
+  height: 53.14px;
+}

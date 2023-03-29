@@ -1,0 +1,64 @@
+.dataInputContainer {
+  margin: 0 auto;
+  width: 375px;
+  height: 789px;
+  background-color: var(--white);
+  box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+  border-radius: 25px 25px 0px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bill label,
+.people label {
+  display: flex;
+  position: relative;
+  color: var(--dark-grayish-cyan);
+}
+
+.bill label,
+.people label {
+  margin: 32px 0 6px 0;
+}
+
+.bill .leftPlaceholder,
+.people .leftPlaceholder {
+  position: absolute;
+  width: 12px;
+  color: var(--grayish-cyan);
+  /* pointer-events: none; */
+}
+
+.bill .leftPlaceholder {
+  left: 48px;
+  top: 76px;
+}
+
+.people .leftPlaceholder {
+  left: 48px;
+  top: 432px;
+}
+
+.bill input,
+.people input {
+  text-align: right;
+  width: 311px;
+  height: 48px;
+  background-color: var(--very-light-grayish-cyan);
+  border-radius: 5px;
+  border: none;
+}
+
+.bill input::placeholder,
+.people input::placeholder {
+  font-size: 16px;
+  color: var(--grayish-cyan);
+}
+
+.buttonsContainer h2 {
+  color: var(--dark-grayish-cyan);
+  font-size: 16px;
+  margin: 32px 0 16px 0;
+}
