@@ -18,11 +18,34 @@
   font-family: var(--ff);
 }
 
+.buttons button:hover {
+  background-color: var(--light-cyan);
+  cursor: pointer;
+}
+
 .buttons input {
   background-color: var(--very-light-grayish-cyan);
+  font-family: var(--ff);
+  color: var(--very-dark-cyan);
+}
+
+.buttons input:focus {
+  outline: none;
+  border: 1px solid var(--strong-cyan);
 }
 
 .buttons input::placeholder {
   color: var(--very-dark-grayish-cyan);
   text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .buttons {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .buttons button,
+  .buttons input {
+    width: 117px;
+  }
 }

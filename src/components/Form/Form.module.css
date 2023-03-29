@@ -1,0 +1,84 @@
+.bill label,
+.numberOfPeople label {
+  display: flex;
+  position: relative;
+  color: var(--dark-grayish-cyan);
+}
+
+.bill label,
+.numberOfPeople label {
+  margin: 32px 0 6px 0;
+}
+
+.bill .leftPlaceholder,
+.numberOfPeople .leftPlaceholder {
+  position: absolute;
+  width: 12px;
+  color: var(--grayish-cyan);
+  /* pointer-events: none; */
+}
+
+.bill .leftPlaceholder {
+  left: 48px;
+  top: 76px;
+}
+
+.numberOfPeople .leftPlaceholder {
+  left: 48px;
+  top: 434px;
+}
+
+.bill input,
+.numberOfPeople input {
+  width: 311px;
+  height: 48px;
+  background-color: var(--very-light-grayish-cyan);
+  border-radius: 5px;
+  border: none;
+  font-size: 24px;
+  padding-right: 16px;
+  text-align: right;
+  font-family: var(--ff);
+  color: var(--very-dark-cyan);
+}
+
+.bill input:focus,
+.numberOfPeople input:focus {
+  outline: none;
+  border: 1px solid var(--strong-cyan);
+}
+
+.bill input::placeholder,
+.numberOfPeople input::placeholder {
+  color: var(--grayish-cyan);
+  font-family: var(--ff);
+}
+
+.buttonsContainer h2 {
+  color: var(--dark-grayish-cyan);
+  font-size: 16px;
+  margin: 32px 0 16px 0;
+}
+
+@media (min-width: 1200px) {
+  .bill input,
+  .numberOfPeople input {
+    width: 379px;
+  }
+  .bill label {
+    margin: 0px 0 6px 0;
+  }
+  .numberOfPeople label {
+    margin: 40px 0 6px 0;
+  }
+  .buttonsContainer h2 {
+    margin: 40px 0 22px 0;
+  }
+  .bill .leftPlaceholder {
+    top: 88px;
+  }
+
+  .numberOfPeople .leftPlaceholder {
+    top: 404px;
+  }
+}

@@ -47,10 +47,33 @@
   width: 281px;
   height: 48px;
   border-radius: 5px;
-  background-color: var(--strong-cyan);
+  background-color: var(--dark-cyan);
   border: none;
   margin-left: 23px;
   font-size: 20px;
   color: var(--very-dark-cyan);
   font-weight: var(--fw-bold);
+}
+
+.resultContainer button:hover {
+  background-color: var(--light-cyan);
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .resultContainer {
+    width: 413px;
+    height: 417px;
+    margin-top: 0px;
+  }
+  .tipAmount {
+    padding: 56px 40px 53px 40px;
+  }
+  .total {
+    padding: 0px 40px 134px 40px;
+  }
+  .resultContainer button {
+    width: 333px;
+    margin-left: 40px;
+  }
 }
