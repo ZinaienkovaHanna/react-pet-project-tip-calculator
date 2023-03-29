@@ -1,7 +1,7 @@
 import { FaUser } from 'react-icons/fa';
 import { BsCurrencyDollar } from 'react-icons/bs';
-
 import Buttons from '../Buttons/Buttons';
+import Result from '../Result/Result';
 
 import styles from './DataInput.module.css';
 
@@ -24,6 +24,8 @@ const DataInput = () => {
         <FaUser className={styles.leftPlaceholder} />
         <input type="number" id="peopleInput" placeholder="0" />
       </div>
+
+      <Result />
     </div>
   );
 };

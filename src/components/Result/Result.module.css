@@ -1,0 +1,49 @@
+.resultContainer {
+  margin-top: 32px;
+  width: 327px;
+  height: 257px;
+  background-color: var(--very-dark-cyan);
+  border-radius: 15px;
+}
+
+.tipAmount,
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tipAmount {
+  padding: 39px 23px 24px 23px;
+}
+
+.total {
+  padding: 0px 23px 35px 23px;
+}
+
+.tipAmount h3,
+.total h3 {
+  color: var(--white);
+  width: 98px;
+  font-size: 16px;
+}
+
+.tipAmount h3 span,
+.total h3 span {
+  color: var(--middle-grayish-cyan);
+  font-size: 13px;
+}
+
+.tipAmount p,
+.total p {
+  font-size: 32px;
+  color: var(--strong-cyan);
+}
+
+.resultContainer button {
+  width: 281px;
+  height: 48px;
+  border-radius: 5px;
+  background-color: var(--strong-cyan);
+  border: none;
+  margin-left: 23px;
+}
