@@ -19,12 +19,13 @@ const Form = ({
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'bill') {
+    if (name === 'bill' && /^((\d+|0)?(\.\d{1,2})?|)$/.test(value)) {
       setBill(value);
     }
 
-    if (name === 'numberOfPeople') {
+    if (name === 'numberOfPeople' && /^(0|[1-9]\d*|)$/.test(value)) {
       setNumberOfPeople(value);
+
       if (value === '0') {
         setShowErrorMessage(true);
         event.target.focus();
@@ -51,9 +52,9 @@ const Form = ({
           id="bill"
           placeholder="0"
           step="0.01"
+          min={1}
           value={bill}
           onChange={handleInputChange}
-          onKeyDown={(e) => e.key === '-' && e.preventDefault()}
         />
       </div>
 
@@ -87,10 +88,6 @@ const Form = ({
           step="1"
           value={numberOfPeople}
           onChange={handleInputChange}
-          onKeyDown={(e) =>
-            (e.key === '.' || e.key === '-' || e.key === ',') &&
-            e.preventDefault()
-          }
         />
       </div>
     </form>

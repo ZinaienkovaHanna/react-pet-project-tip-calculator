@@ -3,6 +3,7 @@ import Form from '../Form/Form';
 import Result from '../Result/Result';
 
 import styles from './TipCalculator.module.css';
+
 const TipCalculator = () => {
   const [bill, setBill] = useState('');
   const [numberOfPeople, setNumberOfPeople] = useState('');
@@ -12,12 +13,6 @@ const TipCalculator = () => {
   const [total, setTotal] = useState('0.00');
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
-
-  //   if (tipPercent > 0) {
-  //     let percent = tipPercent;
-  //   } else if (tipPercentCustom >= 0) {
-  //     percent = tipPercentCustom;
-  //   }
 
   useEffect(() => {
     if (

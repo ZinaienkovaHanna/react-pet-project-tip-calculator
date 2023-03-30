@@ -3,7 +3,6 @@ import dataButtons from '../../data/dataButtons';
 import styles from './Buttons.module.css';
 
 const Buttons = ({
-  tipPercent,
   setTipPercent,
   tipPercentCustom,
   setTipPercentCustom,
@@ -17,8 +16,9 @@ const Buttons = ({
   };
 
   const handleCustomTipChange = (event) => {
+    const { value } = event.target;
     setTipPercent(0);
-    setTipPercentCustom(event.target.value);
+    if (/^(0|[1-9]\d*|)$/.test(value)) setTipPercentCustom(value);
     setActiveButton(null);
   };
 
@@ -27,9 +27,6 @@ const Buttons = ({
       return { backgroundColor: 'var(--strong-cyan)' };
     }
   };
-
-  console.log(tipPercentCustom);
-  console.log(tipPercent);
 
   return (
     <div className={styles.buttons}>
@@ -49,7 +46,6 @@ const Buttons = ({
         placeholder="Custom"
         value={tipPercentCustom}
         onChange={handleCustomTipChange}
-        onKeyDown={(e) => e.key === '-' && e.preventDefault()}
       />
     </div>
   );
